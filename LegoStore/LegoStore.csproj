@@ -73,6 +73,7 @@
     <Compile Include="Customers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="items.cs" />
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -175,8 +176,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="image\a988aa7c048f461ea7fd6b16e907d0c5.jpeg" />
     <Resource Include="image\fonstola.ru_405421.jpg" />
+    <Resource Include="a988aa7c048f461ea7fd6b16e907d0c5.jpeg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

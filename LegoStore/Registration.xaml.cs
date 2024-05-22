@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,19 +16,36 @@ using System.Windows.Shapes;
 
 namespace LegoStore
 {
-    /// <summary>
-    /// Логика взаимодействия для Registration.xaml
-    /// </summary>
     public partial class Registration : Page
-    {
-        public Registration()
         {
-            InitializeComponent();
-        }
+            public Registration()
+            {
+                InitializeComponent();
+            }
 
-        private void Vhod_Click(object sender, RoutedEventArgs e)
-        {
-            AppFrame.mainframe.Navigate(new Authorization());
+            private void Vhod_Click(object sender, RoutedEventArgs e)
+            {
+                AppFrame.mainframe.Navigate(new Authorization());
+            }
+
+            private void Regis_Click(object sender, RoutedEventArgs e)
+            {
+                try
+                {
+                    Users personObj = new Users()
+                    {
+                        Username = Username.Text,
+                        Password = Password.Text,
+
+                    };
+
+                    AppConnect.model0db.Users.Add(personObj);
+                    AppConnect.model0db.SaveChanges();
+                    MessageBox.Show("Пользователь добавлен");
+                    AppFrame.mainframe.Navigate(new Authorization());
+                }
+            catch (Exception) { MessageBox.Show("Ошибка"); }
+            }
+
         }
     }
-}

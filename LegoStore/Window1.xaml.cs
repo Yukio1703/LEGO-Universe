@@ -22,6 +22,9 @@ namespace LegoStore
         public Window1()
         {
             InitializeComponent();
+            items.entity = new Entities();
+            ListView1.ItemsSource = items.entity.Products.ToList();
+            ///hkhigk
         }
     }
 }
