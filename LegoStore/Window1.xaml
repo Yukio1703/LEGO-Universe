@@ -13,11 +13,15 @@
                 <GradientStop Color="#FF6500FF" Offset="1"/>
             </RadialGradientBrush>
         </Grid.Background>
-        <TextBox HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="24" Margin="43,31,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="155" FontWeight="Bold" Foreground="White"/>
-        <ComboBox HorizontalAlignment="Left" Margin="674,35,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="-0.611,0.692"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="547,30,0,0" TextWrapping="Wrap" Text="Сортировать" VerticalAlignment="Top" Height="27" Width="122" Foreground="White"/>
-        <Button Content="Корзина" HorizontalAlignment="Left" Margin="718,23,0,0" VerticalAlignment="Top" Height="41" Width="58" Background="{x:Null}" Foreground="White"/>
+        <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="20px" Margin="43,31,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="155" Foreground="White"/>
+        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="686,34,0,0" VerticalAlignment="Top" Width="20">
+            <ComboBoxItem Content="мужская" />
+            <ComboBoxItem Content="женская" />
+            <ComboBoxItem Content="детская" />
+        </ComboBox>
+        <TextBlock x:Name="filtName" HorizontalAlignment="Left" FontSize="20px" Margin="564,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="117"><Run Language="ru-ru" Text="Фильтрация"/></TextBlock>
+        <Button x:Name="card" Content="Кор" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43" Click="card_Click_1"/>
 
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
         <TextBlock Text="{Binding decription}" Margin="0,82,0,0">
@@ -41,7 +45,7 @@
                         <Image Grid.Column="0" Width="140" Height="140" Source="{Binding CurrentPhoto}"/>
                         <StackPanel Grid.Column="1" Width="auto" Orientation="Vertical" HorizontalAlignment="left">
                             <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
-                                <Run Text="Название: "/>
+                                <Run Text="Название:"/>
                                 <Run Text="{Binding nameItem}"/>
                             </TextBlock>
                             <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
@@ -54,7 +58,7 @@
                             </TextBlock>
                             <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
                                 <Run Text="Категория: "/>
-                                <Run Text="{Binding categor.categor1}"/>
+                                <Run Text="{Binding categor.лего}"/>
                             </TextBlock>
                             <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
                                 <Run Text="Цвет: "/>
@@ -65,7 +69,7 @@
                                 <Run Text="{Binding material.material1}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Background="{x:Null}" Foreground="White"/>
+                        <Button x:Name="card" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Background="{x:Null}" Foreground="White"/>
                         <TextBox Grid.Column="2" Margin="85,75,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"/>
                     </Grid>
                 </DataTemplate>
