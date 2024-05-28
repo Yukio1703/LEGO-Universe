@@ -14,14 +14,14 @@
             </RadialGradientBrush>
         </Grid.Background>
         <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
-        <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="20px" Margin="43,31,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="155" Foreground="White"/>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="24" Margin="43,31,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="155" Foreground="White" FontWeight="Bold"/>
         <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="686,34,0,0" VerticalAlignment="Top" Width="20">
-            <ComboBoxItem Content="мужская" />
-            <ComboBoxItem Content="женская" />
-            <ComboBoxItem Content="детская" />
+            <ComboBoxItem Content="LEGO Super Heroes" />
+            <ComboBoxItem Content="LEGO Star Wars" />
+            <ComboBoxItem Content="LEGO Icons" />
         </ComboBox>
-        <TextBlock x:Name="filtName" HorizontalAlignment="Left" FontSize="20px" Margin="564,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="117"><Run Language="ru-ru" Text="Фильтрация"/></TextBlock>
-        <Button x:Name="card" Content="Кор" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43" Click="card_Click_1"/>
+        <TextBlock x:Name="filtName" HorizontalAlignment="Left" FontSize="20px" Margin="564,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="117" Foreground="White"><Run Language="ru-ru" Text="Фильтрация"/></TextBlock>
+        <Button x:Name="card" Content="Корина" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43" Click="card_Click_1" Background="{x:Null}" Foreground="White"/>
 
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
         <TextBlock Text="{Binding decription}" Margin="0,82,0,0">
@@ -44,29 +44,21 @@
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0" Width="140" Height="140" Source="{Binding CurrentPhoto}"/>
                         <StackPanel Grid.Column="1" Width="auto" Orientation="Vertical" HorizontalAlignment="left">
-                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto" Foreground="White">
                                 <Run Text="Название:"/>
-                                <Run Text="{Binding nameItem}"/>
+                                <Run Text="{Binding Name}"/>
                             </TextBlock>
-                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
-                                <Run Text="Цена: "/>
-                                <Run Text="{Binding price}"/>
-                            </TextBlock>
-                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto" Foreground="White">
                                 <Run Text="О товаре: "/>
-                                <Run Text="{Binding infoItem}"/>
+                                <Run Text="{Binding Description}"/>
                             </TextBlock>
-                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto" Foreground="White">
+                                <Run Text="Цена: "/>
+                                <Run Text="{Binding Price}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto" Foreground="White">
                                 <Run Text="Категория: "/>
-                                <Run Text="{Binding categor.лего}"/>
-                            </TextBlock>
-                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
-                                <Run Text="Цвет: "/>
-                                <Run Text="{Binding color1.color}"/>
-                            </TextBlock>
-                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
-                                <Run Text="Материал: "/>
-                                <Run Text="{Binding material.material1}"/>
+                                <Run Text="{Binding Categories.Name}"/>
                             </TextBlock>
                         </StackPanel>
                         <Button x:Name="card" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Background="{x:Null}" Foreground="White"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace LegoStore
         public Window1()
         {
             InitializeComponent();
-            items.entity = new Entities();
+            items.entity = new Entities2();
             ListView1.ItemsSource = items.entity.Products.ToList();
             ///hkhigk
         }

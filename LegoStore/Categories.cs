@@ -19,7 +19,7 @@ namespace LegoStore
             this.Products = new HashSet<Products>();
         }
     
-        public int CategoryID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<Products> Products { get; set; }
