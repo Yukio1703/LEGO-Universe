@@ -18,8 +18,10 @@ namespace LegoStore
         public Nullable<int> OrderID { get; set; }
         public Nullable<int> ProductID { get; set; }
         public Nullable<int> Quantity { get; set; }
+        public Nullable<int> UserID { get; set; }
     
         public virtual Orders Orders { get; set; }
         public virtual Products Products { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

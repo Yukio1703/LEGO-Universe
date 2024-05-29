@@ -8,6 +8,6 @@ namespace LegoStore
 {
     public static class AppConnect
     {
-        public static Entities model0db;
+        public static Entities3 model0db;
     }
 }

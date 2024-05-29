@@ -8,6 +8,6 @@ namespace LegoStore
 {
     internal class items
     {
-        public static Entities entity;
+        public static Entities3 entity;
     }
 }

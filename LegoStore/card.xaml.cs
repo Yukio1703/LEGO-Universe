@@ -22,6 +22,8 @@ namespace LegoStore
         public card()
         {
             InitializeComponent();
+            items.entity = new Entities3();
+            Card.ItemsSource = AppConnect.model0db.OrderDetails.ToList();
         }
 
         private void back_Click(object sender, RoutedEventArgs e)

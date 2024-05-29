@@ -24,21 +24,6 @@ namespace LegoStore
         public string Description { get; set; }
         public Nullable<decimal> Price { get; set; }
         public string photoItem { get; set; }
-        public string Image { get; set; }
-        public string CurrentPhoto
-        {
-            get
-            {
-                if (String.IsNullOrEmpty(Image) || String.IsNullOrWhiteSpace(Image))
-                {
-                    return "/image/1.jpg";
-                }
-                else
-                {
-                    return "/image/" + Image;
-                }
-            }
-        }
         public Nullable<int> CategoryID { get; set; }
         public Nullable<int> SupplierID { get; set; }
     

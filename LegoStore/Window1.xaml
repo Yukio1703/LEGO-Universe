@@ -15,12 +15,12 @@
         </Grid.Background>
         <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
         <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="24" Margin="43,31,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="155" Foreground="White" FontWeight="Bold"/>
-        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="686,34,0,0" VerticalAlignment="Top" Width="20">
+        <ComboBox x:Name="Sort" HorizontalAlignment="Left" Margin="567,33,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="Sort_SelectionChanged">
+            <ComboBoxItem Content="Фильтрация" />
             <ComboBoxItem Content="LEGO Super Heroes" />
             <ComboBoxItem Content="LEGO Star Wars" />
             <ComboBoxItem Content="LEGO Icons" />
         </ComboBox>
-        <TextBlock x:Name="filtName" HorizontalAlignment="Left" FontSize="20px" Margin="564,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="117" Foreground="White"><Run Language="ru-ru" Text="Фильтрация"/></TextBlock>
         <Button x:Name="card" Content="Корина" HorizontalAlignment="Left" Margin="735,23,0,0" VerticalAlignment="Top" Height="41" Width="43" Click="card_Click_1" Background="{x:Null}" Foreground="White"/>
 
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
@@ -61,8 +61,8 @@
                                 <Run Text="{Binding Categories.Name}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button x:Name="card" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Background="{x:Null}" Foreground="White"/>
-                        <TextBox Grid.Column="2" Margin="85,75,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"/>
+                        <Button x:Name="buy" Grid.Column="2" FontSize="20px" Content="Купить" HorizontalAlignment="Left" Margin="85,31,0,0" VerticalAlignment="Top" Height="39" Width="105" Background="{x:Null}" Foreground="White" Click="buy_Click_1"/>
+                        <TextBox x:Name="caunt" Grid.Column="2" HorizontalAlignment="Left" FontSize="20" Margin="85,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105" Text="1"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

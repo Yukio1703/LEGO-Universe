@@ -14,9 +14,16 @@ namespace LegoStore
     
     public partial class Users
     {
+        public Users()
+        {
+            this.OrderDetails = new HashSet<OrderDetails>();
+        }
+    
         public int UserID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+    
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

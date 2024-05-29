@@ -30,6 +30,7 @@
           <Property Name="OrderID" Type="int" />
           <Property Name="ProductID" Type="int" />
           <Property Name="Quantity" Type="int" />
+          <Property Name="UserID" Type="int" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -112,6 +113,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDetails_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_Customers">
           <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -178,6 +191,10 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Users" Association="Self.FK_OrderDetails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_Customers" Association="Self.FK_Orders_Customers">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Orders" EntitySet="Orders" />
@@ -227,8 +244,10 @@
           <Property Name="OrderID" Type="Int32" />
           <Property Name="ProductID" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_OrderDetails_Orders" FromRole="OrderDetails" ToRole="Orders" />
           <NavigationProperty Name="Products" Relationship="Self.FK_OrderDetails_Products" FromRole="OrderDetails" ToRole="Products" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_OrderDetails_Users" FromRole="OrderDetails" ToRole="Users" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
@@ -294,6 +313,7 @@
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Users" FromRole="Users" ToRole="OrderDetails" />
         </EntityType>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
@@ -343,6 +363,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_OrderDetails_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Orders_Shippers">
           <End Role="Shippers" Type="Self.Shippers" Multiplicity="0..1" />
           <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
@@ -367,7 +399,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" />
@@ -393,6 +425,10 @@
             <End Role="Products" EntitySet="Products" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Users" Association="Self.FK_OrderDetails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
           <AssociationSet Name="FK_Orders_Shippers" Association="Self.FK_Orders_Shippers">
             <End Role="Shippers" EntitySet="Shippers" />
             <End Role="Orders" EntitySet="Orders" />
@@ -407,7 +443,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities3">
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="Model.Categories">
               <MappingFragment StoreEntitySet="Categories">
@@ -434,6 +470,7 @@
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
