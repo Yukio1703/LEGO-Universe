@@ -82,7 +82,7 @@ namespace LegoStore
             var button = sender as Button;
             var id = button.Tag;
             int userId = (int)App.Current.Properties["userEmail"];
-            id = Convert.ToInt32(id);
+            id = (int?)id;
 
             try
             {
@@ -95,9 +95,9 @@ namespace LegoStore
                 };
                 AppConnect.model0db.OrderDetails.Add(card);
                 AppConnect.model0db.SaveChanges();
-                MessageBox.Show("товар отправлен в корзину + " + userId + " + " + Convert.ToInt32(id));
+                MessageBox.Show("товар добавлен в корзину + " + userId + " + " + (int?)id);
             }
-            catch (Exception ex) { MessageBox.Show("товар не отправлен в корзину"); }
+            catch (Exception ex) { MessageBox.Show("товар не добавлен в корзину"); }
         }
     }
 }

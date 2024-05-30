@@ -32,5 +32,6 @@ namespace LegoStore
             window.Show();
             this.Close();
         }
+
     }
 }

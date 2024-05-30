@@ -35,7 +35,7 @@ namespace LegoStore
                 Window window = new Window1();
                 window.Show();
                 Application.Current.MainWindow.Close();
-                App.Current.Properties["userEmail"] = userObj.UserID;
+                var a = App.Current.Properties["userEmail"] = userObj.UserID;
             }
             else
             {
