@@ -19,6 +19,16 @@ namespace LegoStore
             : base("name=Entities3")
         {
         }
+        public static Entities3 _context;
+
+        public static Entities3 GetContext()
+        {
+            if(_context == null)
+            {
+                _context = new Entities3();
+            }
+            return _context;
+        }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

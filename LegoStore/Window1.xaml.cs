@@ -39,7 +39,6 @@ namespace LegoStore
             this.Close();
         }
 
-
         // poisk
         Products[] FindMain()
         {
@@ -73,31 +72,61 @@ namespace LegoStore
         //korzina
         private void buy_Click(object sender, RoutedEventArgs e)
         {
-          
 
         }
 
         private void buy_Click_1(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            var id = button.Tag;
+            var id = button.DataContext as Products;
             int userId = (int)App.Current.Properties["userEmail"];
-            id = (int?)id;
 
             try
             {
+                // Получить или сгенерировать OrderID
+                int orderId = GetOrCreateOrderId(userId);
+
                 OrderDetails card = new OrderDetails()
                 {
-                    OrderID = (int?)id,
+                    OrderID = orderId,
                     UserID = userId,
-                    ProductID = (int?)id,
+                    ProductID = id.ProductID,
                     Quantity = 1,
                 };
-                AppConnect.model0db.OrderDetails.Add(card);
-                AppConnect.model0db.SaveChanges();
-                MessageBox.Show("товар добавлен в корзину + " + userId + " + " + (int?)id);
+
+                Entities3.GetContext().OrderDetails.Add(card);
+                Entities3.GetContext().SaveChanges();
+
+                MessageBox.Show("товар добавлен в корзину");
             }
-            catch (Exception ex) { MessageBox.Show("товар не добавлен в корзину"); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("товар не добавлен в корзину: " + ex.Message);
+            }
+        }
+
+        private int GetOrCreateOrderId(int userId)
+        {
+            var context = Entities3.GetContext();
+
+            // Проверить, есть ли открытый ордер у пользователя
+            var order = context.Orders.FirstOrDefault(o => o.OrderID == userId);
+
+            if (order == null)
+            {
+                // Создать новый заказ, если его нет.
+                order = new Orders()
+                {
+                    OrderID = userId,
+                   
+                    OrderDate = DateTime.Now
+                };
+                context.Orders.Add(order);
+                context.SaveChanges();
+            }
+
+            return order.OrderID;
         }
     }
 }
+

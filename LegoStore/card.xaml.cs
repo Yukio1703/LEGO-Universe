@@ -1,5 +1,7 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,5 +35,23 @@ namespace LegoStore
             this.Close();
         }
 
+        private void deleteItem_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var id = button.DataContext as OrderDetails;
+            var itemDel = AppConnect.model0db.OrderDetails.Where(x => x.OrderDetailID == id.OrderDetailID);
+            try
+            {
+                AppConnect.model0db.OrderDetails.RemoveRange(itemDel);
+                AppConnect.model0db.SaveChanges();
+                AppConnect.model0db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                Card.ItemsSource = AppConnect.model0db.OrderDetails.ToList();
+                MessageBox.Show("Товар удален");
+            }
+            catch
+            {
+                MessageBox.Show("Товар не удален");
+            }
+        }
     }
 }
