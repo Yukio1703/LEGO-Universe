@@ -22,7 +22,7 @@ namespace LegoStore
             InitializeComponent();
             AppFrame.mainframe = FrameMain;
             AppFrame.mainframe.Navigate(new Authorization());
-            AppConnect.model0db = new Entities3();
+            AppConnect.model0db = new Entities4();
         }
     }
 }

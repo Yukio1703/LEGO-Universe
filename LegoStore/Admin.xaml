@@ -1,0 +1,65 @@
+﻿<Window x:Class="LegoStore.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LegoStore"
+        mc:Ignorable="d"
+        Title="LEGO STORE ADMIN" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
+        <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="20px" Margin="43,31,0,0" Background="#FFDEE3EC" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="117"/>
+        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="552,33,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="sortItems_SelectionChanged">
+            <ComboBoxItem Content="Фильтрация" />
+            <ComboBoxItem Content="LEGO Super Heroes" />
+            <ComboBoxItem Content="LEGO Star Wars" />
+            <ComboBoxItem Content="LEGO Icons" />
+        </ComboBox>
+        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Margin="710,23,0,0" VerticalAlignment="Top" Height="41" Width="68" Click="AddItem_Click" Foreground="White" >
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF00FFE2" Offset="0"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
+        <TextBlock Text="{Binding decription}" Margin="0,82,0,0">
+            <Run></Run>
+        </TextBlock>
+        <ListView x:Name="ListView1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,82,0,0">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140"></ColumnDefinition>
+                            <ColumnDefinition Width="300"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Width="140" Height="140" Source="{Binding CurrentPhoto}"/>
+                        <StackPanel Grid.Column="1" Width="auto" Orientation="Vertical" HorizontalAlignment="left">
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Название: "/>
+                                <Run Text="{Binding nameItem}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Цена: "/>
+                                <Run Text="{Binding price}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="О товаре: "/>
+                                <Run Text="{Binding infoItem}"/>
+                            </TextBlock>
+                            <TextBlock Width="auto" TextWrapping="Wrap" Height="auto">
+                                <Run Text="Категория: "/>
+                                <Run Text="{Binding categor.categor1}"/>
+                            </TextBlock>
+                        </StackPanel>
+                        <Button x:Name="change" Grid.Column="2" FontSize="20px" Content="Изменить" Background="#FF00FFED" HorizontalAlignment="Left" Margin="85,20,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Foreground="White"/>
+                        <Button x:Name="delete" Grid.Column="2" FontSize="20px" Content="Удалить" Background="#FFFF1A00" HorizontalAlignment="Left" Margin="85,70,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Click="delete_Click" Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

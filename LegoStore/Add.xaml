@@ -1,0 +1,33 @@
+﻿<Window x:Class="LegoStore.Add"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LegoStore"
+        mc:Ignorable="d"
+        Title="Add" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF6500FF" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Center" FontSize="36" Margin="0,43,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <TextBox x:Name="nameItem" HorizontalAlignment="Left" FontSize="20px" Margin="42,117,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223" Height="30" TextChanged="nameItem_TextChanged"/>
+        <TextBox x:Name="price" HorizontalAlignment="Left" FontSize="20px" Margin="42,201,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223" Height="30"/>
+        <TextBox x:Name="infoItem" HorizontalAlignment="Left" FontSize="20px" Margin="42,298,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223" Height="30"/>
+        <ComboBox x:Name="idCategor" HorizontalAlignment="Left" FontSize="20px" Margin="513,115,0,0" VerticalAlignment="Top" Width="215" Height="32">
+            <ComboBoxItem Content="LEGO Super Heroes" />
+            <ComboBoxItem Content="LEGO Star Wars" />
+            <ComboBoxItem Content="LEGO Icons" />
+        </ComboBox>
+        <Button x:Name="Additem" Content="Добавить" Background="{x:Null}" HorizontalAlignment="Left" Margin="319,376,0,0" VerticalAlignment="Top" Height="31" Width="128" Click="Additem_Click" Foreground="White" FontSize="16"/>
+        <Label Content="Название товара" FontSize="20px" HorizontalAlignment="Left" Margin="42,80,0,0" VerticalAlignment="Top" Width="173" Foreground="White"/>
+        <Label Content="Цена" FontSize="20px" HorizontalAlignment="Left" Margin="42,164,0,0" VerticalAlignment="Top" Width="136" Foreground="White"/>
+        <Label Content="О товаре" FontSize="20px" HorizontalAlignment="Left" Margin="42,261,0,0" VerticalAlignment="Top" Width="136" Foreground="White"/>
+        <Label Content="Категория" FontSize="20px" HorizontalAlignment="Left" Margin="513,80,0,0" VerticalAlignment="Top" Width="136" Foreground="White"/>
+        <Label Content="Фото" FontSize="20px" HorizontalAlignment="Left" Margin="513,164,0,0" VerticalAlignment="Top" Width="62" Foreground="White"/>
+        <TextBox x:Name="photoItem" HorizontalAlignment="Left" FontSize="20px" Margin="505,201,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="223" Height="30"/>
+    </Grid>
+</Window>

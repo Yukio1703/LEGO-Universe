@@ -32,14 +32,14 @@ namespace LegoStore
             {
                 try
                 {
-                    Users personObj = new Users()
+                    User personObj = new User()
                     {
                         Username = Username.Text,
                         Password = Password.Text,
 
                     };
 
-                    AppConnect.model0db.Users.Add(personObj);
+                    AppConnect.model0db.User.Add(personObj);
                     AppConnect.model0db.SaveChanges();
                     MessageBox.Show("Пользователь добавлен");
                     AppFrame.mainframe.Navigate(new Authorization());

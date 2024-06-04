@@ -29,17 +29,25 @@ namespace LegoStore
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var userObj = AppConnect.model0db.Users.FirstOrDefault(x => x.Username == Username.Text && x.Password == Password.Password);
-            if (userObj != null)
+            var userObj = AppConnect.model0db.User.FirstOrDefault(x => x.Username == Username.Text && x.Password == Password.Password);
+            //проверка если у пользователя 1 уровень доступа то переход на стараницу админ
+            if (userObj.RoleID == 1)
             {
-                Window window = new Window1();
+                App.Current.Properties["userEmail"] = userObj.UserID;
+                Admin admin = new Admin();
+                admin.Show();
+                Application.Current.MainWindow.Close();
+            }
+            else if (userObj != null)
+            {
+                App.Current.Properties["userEmail"] = userObj.UserID;
+                Window1 window = new Window1((int)userObj.RoleID);
                 window.Show();
                 Application.Current.MainWindow.Close();
-                var a = App.Current.Properties["userEmail"] = userObj.UserID;
             }
             else
             {
-                MessageBox.Show("Такого пользователя не существует");
+                MessageBox.Show("Пользователь не найден");
             }
         }
     }

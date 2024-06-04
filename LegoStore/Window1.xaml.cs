@@ -20,12 +20,14 @@ namespace LegoStore
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
+        int userID = 1;
+        public Window1(int userid)
         {
             InitializeComponent();
-            items.entity = new Entities3();
+            items.entity = new Entities4();
             ListView1.ItemsSource = FindMain();
             Sort.SelectedIndex = 0;
+            userID = userid;
         }
         private void card_Click(object sender, RoutedEventArgs e)
         {
@@ -34,7 +36,7 @@ namespace LegoStore
 
         private void card_Click_1(object sender, RoutedEventArgs e)
         {
-            card card = new card();
+            card card = new card(userID);
             card.Show();
             this.Close();
         }
@@ -86,7 +88,7 @@ namespace LegoStore
                 // Получить или сгенерировать OrderID
                 int orderId = GetOrCreateOrderId(userId);
 
-                OrderDetails card = new OrderDetails()
+                OrderDetail card = new OrderDetail()
                 {
                     OrderID = orderId,
                     UserID = userId,
@@ -94,8 +96,8 @@ namespace LegoStore
                     Quantity = 1,
                 };
 
-                Entities3.GetContext().OrderDetails.Add(card);
-                Entities3.GetContext().SaveChanges();
+                Entities4.GetContext().OrderDetail.Add(card);
+                Entities4.GetContext().SaveChanges();
 
                 MessageBox.Show("товар добавлен в корзину");
             }
@@ -107,7 +109,7 @@ namespace LegoStore
 
         private int GetOrCreateOrderId(int userId)
         {
-            var context = Entities3.GetContext();
+            var context = Entities4.GetContext();
 
             // Проверить, есть ли открытый ордер у пользователя
             var order = context.Orders.FirstOrDefault(o => o.OrderID == userId);

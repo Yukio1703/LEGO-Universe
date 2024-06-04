@@ -21,16 +21,17 @@ namespace LegoStore
     /// </summary>
     public partial class card : Window
     {
-        public card()
+        int userID = 1;
+        public card(int userid)
         {
             InitializeComponent();
-            items.entity = new Entities3();
-            Card.ItemsSource = AppConnect.model0db.OrderDetails.ToList();
+            items.entity = new Entities4();
+            Card.ItemsSource = AppConnect.model0db.OrderDetail.ToList();
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            Window1 window = new Window1();
+            Window1 window = new Window1(userID);
             window.Show();
             this.Close();
         }
@@ -38,14 +39,14 @@ namespace LegoStore
         private void deleteItem_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            var id = button.DataContext as OrderDetails;
-            var itemDel = AppConnect.model0db.OrderDetails.Where(x => x.OrderDetailID == id.OrderDetailID);
+            var id = button.DataContext as OrderDetail;
+            var itemDel = AppConnect.model0db.OrderDetail.Where(x => x.OrderDetailID == id.OrderDetailID);
             try
             {
-                AppConnect.model0db.OrderDetails.RemoveRange(itemDel);
+                AppConnect.model0db.OrderDetail.RemoveRange(itemDel);
                 AppConnect.model0db.SaveChanges();
                 AppConnect.model0db.ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-                Card.ItemsSource = AppConnect.model0db.OrderDetails.ToList();
+                Card.ItemsSource = AppConnect.model0db.OrderDetail.ToList();
                 MessageBox.Show("Товар удален");
             }
             catch
