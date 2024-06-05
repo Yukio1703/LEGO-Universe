@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace LegoStore
@@ -22,6 +24,28 @@ namespace LegoStore
         public Add()
         {
             InitializeComponent();
+        }
+        private Products editMain;
+
+        public Add(Products editMain)
+        {
+            InitializeComponent();
+            this.editMain = editMain;
+
+            //получение данных из admin для изменение
+            var nameItemCh = editMain.Name.ToString();
+            var infoItemCh = editMain.Description.ToString();
+            var priceCh = editMain.Price.ToString();
+            var photoItemCh = editMain.photoItem.ToString();
+            var idCategorCh = editMain.CategoryID;
+
+
+            //ввод этих данных на их места
+            nameItem.Text = nameItemCh;
+            infoItem.Text = infoItemCh;
+            price.Text = Convert.ToString(priceCh);
+            photoItem.Text = photoItemCh;
+            idCategor.SelectedIndex = Convert.ToInt32(idCategorCh) - 1;
         }
         //Добавление товара в products
         private void Additem_Click(object sender, RoutedEventArgs e)
@@ -61,8 +85,14 @@ namespace LegoStore
             {
                 try
                 {
+                    var ProductID = 0;
+                    if (editMain != null)
+                    {
+                        ProductID = editMain.ProductID;
+                    }
                     Products mainItems = new Products()
                     {
+                        ProductID = ProductID,
                         Name = nameItem.Text,
                         Description = infoItem.Text,
                         Price = Convert.ToInt32(price.Text),
@@ -70,7 +100,7 @@ namespace LegoStore
                         CategoryID = idCategor.SelectedIndex + 1,
                     };
 
-                    AppConnect.model0db.Products.Add(mainItems);
+                    AppConnect.model0db.Products.AddOrUpdate(mainItems);
                     AppConnect.model0db.SaveChanges();
                     MessageBox.Show("товар добавлен");
 
@@ -86,6 +116,13 @@ namespace LegoStore
             {
                 MessageBox.Show("Обнаружены пустые данные");
             }
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            Admin admin = new Admin();
+            admin.Show();
+            Close();
         }
     }
 }

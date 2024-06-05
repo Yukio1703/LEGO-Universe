@@ -7,27 +7,32 @@
         mc:Ignorable="d"
         Title="LEGO STORE ADMIN" Height="450" Width="800">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF36009A" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <TextBox x:Name="findItems" HorizontalAlignment="Center" FontSize="20px" Margin="0,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Height="29" TextChanged="findItems_TextChanged"/>
-        <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="20px" Margin="43,31,0,0" Background="#FFDEE3EC" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="27" Width="117"/>
-        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="552,33,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="sortItems_SelectionChanged">
+        <TextBlock x:Name="name" HorizontalAlignment="Left" FontSize="36" Margin="28,20,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Height="45" Width="222" FontWeight="Bold" Foreground="White"/>
+        <ComboBox x:Name="sortItems" HorizontalAlignment="Left" Margin="552,33,0,0" VerticalAlignment="Top" Width="142" SelectionChanged="sortItems_SelectionChanged" BorderBrush="#FFACACAC" Foreground="Black" Background="#FFE5E5E5">
             <ComboBoxItem Content="Фильтрация" />
             <ComboBoxItem Content="LEGO Super Heroes" />
             <ComboBoxItem Content="LEGO Star Wars" />
             <ComboBoxItem Content="LEGO Icons" />
         </ComboBox>
-        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Margin="710,23,0,0" VerticalAlignment="Top" Height="41" Width="68" Click="AddItem_Click" Foreground="White" >
-            <Button.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF00FFE2" Offset="0"/>
-                </RadialGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="Add" Content="Добавить" HorizontalAlignment="Left" Margin="710,23,0,0" VerticalAlignment="Top" Height="41" Width="68" Click="AddItem_Click" Foreground="White" Background="{x:Null}" BorderBrush="White" FontSize="14" />
         <Image Grid.Column="0" Source="{Binding CarrectImage}" Margin="0,86,0,0"/>
         <TextBlock Text="{Binding decription}" Margin="0,82,0,0">
             <Run></Run>
         </TextBlock>
-        <ListView x:Name="ListView1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,82,0,0">
+        <ListView x:Name="ListView1" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,82,0,0" Foreground="White" FontSize="14">
+            <ListView.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF36009A" Offset="0"/>
+                </LinearGradientBrush>
+            </ListView.Background>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -55,8 +60,8 @@
                                 <Run Text="{Binding categor.categor1}"/>
                             </TextBlock>
                         </StackPanel>
-                        <Button x:Name="change" Grid.Column="2" FontSize="20px" Content="Изменить" Background="#FF00FFED" HorizontalAlignment="Left" Margin="85,20,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Foreground="White"/>
-                        <Button x:Name="delete" Grid.Column="2" FontSize="20px" Content="Удалить" Background="#FFFF1A00" HorizontalAlignment="Left" Margin="85,70,0,0" Tag="{Binding id}" VerticalAlignment="Top" Height="39" Width="105" Click="delete_Click" Foreground="White"/>
+                        <Button x:Name="change" Grid.Column="2" FontSize="20px" Content="Изменить" Background="{x:Null}" HorizontalAlignment="Left" Margin="85,20,0,0" Tag="{Binding ProductID}" VerticalAlignment="Top" Height="39" Width="105" Foreground="White" BorderBrush="White" Click="change_Click_1"/>
+                        <Button x:Name="delete" Grid.Column="2" FontSize="20px" Content="Удалить" Background="{x:Null}" HorizontalAlignment="Left" Margin="85,70,0,0" Tag="{Binding ProductID}" VerticalAlignment="Top" Height="39" Width="105" Click="delete_Click" Foreground="White" BorderBrush="White"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -10,34 +10,23 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="image/fonstola.ru_405421.jpg"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF36009A" Offset="0.253"/>
+            </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="223*"/>
             <RowDefinition Height="227*"/>
         </Grid.RowDefinitions>
-        <TextBlock HorizontalAlignment="Center" FontSize="48" Margin="0,43,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Foreground="#FF00FF79"/>
-        <TextBlock HorizontalAlignment="Center" FontSize="36" TextWrapping="Wrap" Text="Регистрация" VerticalAlignment="Top" Foreground="Red" Margin="0,107,0,0" RenderTransformOrigin="0.733,0.389"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="113,167,0,0" TextWrapping="Wrap" Text="Введите имя пользователя" VerticalAlignment="Top" Foreground="#FF7DFF00"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="48" Margin="0,43,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="36" TextWrapping="Wrap" Text="Регистрация" VerticalAlignment="Top" Foreground="White" Margin="0,107,0,0" RenderTransformOrigin="0.733,0.389"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="113,167,0,0" TextWrapping="Wrap" Text="Введите имя пользователя" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="Username" HorizontalAlignment="Left" Margin="89,206,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Height="34" Grid.RowSpan="2"/>
-        <Button x:Name="Vhod" Content="Отмена" HorizontalAlignment="Left" Margin="140,34,0,0" VerticalAlignment="Top" Height="40" Width="190" Grid.Row="1" Foreground="White" Click="Vhod_Click" BorderBrush="{x:Null}" FontSize="16">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF00FFCA" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Regis" Content="Регистрация" HorizontalAlignment="Left" Margin="452,34,0,0" VerticalAlignment="Top" Height="40" Width="190" Grid.Row="1" Foreground="White" BorderBrush="{x:Null}" FontSize="16" RenderTransformOrigin="-0.068,0.5" Click="Regis_Click">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF00FFCA" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <Button x:Name="Vhod" Content="Отмена" HorizontalAlignment="Left" Margin="140,34,0,0" VerticalAlignment="Top" Height="40" Width="190" Grid.Row="1" Foreground="White" Click="Vhod_Click" BorderBrush="White" FontSize="16" Background="{x:Null}"/>
+        <Button x:Name="Regis" Content="Регистрация" HorizontalAlignment="Left" Margin="452,34,0,0" VerticalAlignment="Top" Height="40" Width="190" Grid.Row="1" Foreground="White" BorderBrush="White" FontSize="16" RenderTransformOrigin="-0.068,0.5" Click="Regis_Click" Background="{x:Null}"/>
         <TextBox x:Name="Password" HorizontalAlignment="Left" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Height="36" RenderTransformOrigin="0.345,-0.09" Margin="400,206,0,0" Grid.RowSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="474,167,0,0" TextWrapping="Wrap" Text="Введите пароль" VerticalAlignment="Top" Foreground="#FF7DFF00"/>
+        <TextBlock HorizontalAlignment="Left" FontSize="20px" Margin="474,167,0,0" TextWrapping="Wrap" Text="Введите пароль" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Page>

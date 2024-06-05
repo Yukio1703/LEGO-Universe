@@ -10,30 +10,19 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/a988aa7c048f461ea7fd6b16e907d0c5.jpeg"/>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="#FF36009A" Offset="0.287"/>
+            </LinearGradientBrush>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Center" FontSize="48" Margin="0,34,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Foreground="#FF00FF79"/>
-        <TextBlock HorizontalAlignment="Center" FontSize="36" Margin="0,98,0,0" TextWrapping="Wrap" Text="Вход" VerticalAlignment="Top" Foreground="Red"/>
-        <TextBlock HorizontalAlignment="Center" FontSize="20px" Margin="0,151,0,0" TextWrapping="Wrap" Text="Введите имя пользователя" VerticalAlignment="Top" Foreground="#FF7DFF00"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="48" Margin="0,34,0,0" TextWrapping="Wrap" Text="LEGO STORE" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="36" Margin="0,98,0,0" TextWrapping="Wrap" Text="Вход" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Center" FontSize="22" Margin="0,151,0,0" TextWrapping="Wrap" Text="Введите имя пользователя" VerticalAlignment="Top" Foreground="White" FontStyle="Italic"/>
         <TextBox x:Name="Username" HorizontalAlignment="Center" Margin="0,190,0,0" FontSize="23px" TextWrapping="Wrap" VerticalAlignment="Top" Width="292" Height="35"/>
         <PasswordBox Name="Password" HorizontalAlignment="Center" Margin="0,268,0,0" FontSize="23px" VerticalAlignment="Top" Width="291" Height="35"/>
-        <TextBlock HorizontalAlignment="Center" FontSize="20px" Margin="0,236,0,0" TextWrapping="Wrap" Text="Введите пароль" VerticalAlignment="Top" Foreground="#FF7DFF00"/>
-        <Button x:Name="Vhod" Content="Войти" HorizontalAlignment="Left" Margin="254,321,0,0" VerticalAlignment="Top" Height="35" Width="136" Click="Button_Click_1" Foreground="White" FontSize="16" BorderBrush="{x:Null}">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF00FFCA" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Regis" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="411,321,0,0" VerticalAlignment="Top" Height="35" Width="135" Click="Button_Click" Foreground="White" FontSize="14" BorderBrush="{x:Null}">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FF00FFCA" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+        <TextBlock HorizontalAlignment="Center" FontSize="22" Margin="0,236,0,0" TextWrapping="Wrap" Text="Введите пароль" VerticalAlignment="Top" Foreground="White" FontStyle="Italic"/>
+        <Button x:Name="Vhod" Content="Войти" HorizontalAlignment="Left" Margin="254,321,0,0" VerticalAlignment="Top" Height="35" Width="136" Click="Button_Click_1" Foreground="White" FontSize="16" BorderBrush="White" Background="{x:Null}"/>
+        <Button x:Name="Regis" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="411,321,0,0" VerticalAlignment="Top" Height="35" Width="135" Click="Button_Click" Foreground="White" FontSize="14" BorderBrush="White" Background="{x:Null}"/>
 
     </Grid>
 </Page>

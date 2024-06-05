@@ -202,11 +202,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="n1wv4xzmf6sd86jpa3gup1paqu8q96ql.jpg" />
-    <Resource Include="image\fonstola.ru_405421.jpg" />
-    <Resource Include="a988aa7c048f461ea7fd6b16e907d0c5.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>

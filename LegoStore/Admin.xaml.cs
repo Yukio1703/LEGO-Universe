@@ -67,8 +67,8 @@ namespace LegoStore
         private void delete_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            var id = button.Tag;
-            var itemDel = AppConnect.model0db.Products.Where(x => x.ProductID == (int?)id);
+            var ProductID = button.Tag;
+            var itemDel = AppConnect.model0db.Products.Where(x => x.ProductID == (int?)ProductID);
             try
             {
                 AppConnect.model0db.Products.RemoveRange(itemDel);
@@ -87,6 +87,15 @@ namespace LegoStore
         {
             Add add = new Add();
             add.Show();
+            Close();
+        }
+        //Изменение (перход на страницу с добавлением и сохраняем данных)
+        private void change_Click_1(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var itemSend = button.DataContext as Products;
+            Add addItem = new Add(itemSend);
+            addItem.Show();
             Close();
         }
     }
