@@ -31,19 +31,22 @@ namespace LegoStore
         {
             var userObj = AppConnect.model0db.User.FirstOrDefault(x => x.Username == Username.Text && x.Password == Password.Password);
             //проверка если у пользователя 1 уровень доступа то переход на стараницу админ
-            if (userObj.RoleID == 1)
-            {
-                App.Current.Properties["userEmail"] = userObj.UserID;
-                Admin admin = new Admin();
-                admin.Show();
-                Application.Current.MainWindow.Close();
-            }
-            else if (userObj != null)
+            if (userObj != null)
             {
                 App.Current.Properties["userEmail"] = userObj.UserID;
                 Window1 window = new Window1((int)userObj.RoleID);
-                window.Show();
-                Application.Current.MainWindow.Close();
+                if (userObj.RoleID == 1)
+                {
+                    App.Current.Properties["userEmail"] = userObj.UserID;
+                    Admin admin = new Admin();
+                    admin.Show();
+                    Application.Current.MainWindow.Close();
+                }
+                else
+                {
+                    window.Show();
+                    Application.Current.MainWindow.Close();
+                }
             }
             else
             {

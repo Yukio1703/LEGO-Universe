@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aspose.BarCode.Generation;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -27,6 +28,20 @@ namespace LegoStore
             InitializeComponent();
             items.entity = new Entities4();
             Card.ItemsSource = AppConnect.model0db.OrderDetail.ToList();
+
+            //общая стоимость товаров в корзине 
+            var a = AppConnect.model0db.OrderDetail.ToList();
+            int sumPrice = 0;
+
+            for (int i = 0; i < a.Count; i++)
+            {
+                int gooid = (int)a[i].ProductID;
+                Products b = AppConnect.model0db.Products.FirstOrDefault(x => x.ProductID == gooid);
+                sumPrice += (int)b.Price;
+            }
+            coast.Text = sumPrice.ToString();
+
+            userID = userid;
         }
 
         private void back_Click(object sender, RoutedEventArgs e)
@@ -53,6 +68,27 @@ namespace LegoStore
             {
                 MessageBox.Show("Товар не удален");
             }
+        }
+        //qr функция
+        int a = 1;
+
+        private void doQR()
+        {
+            BitmapImage bitmap = new BitmapImage();
+            BarcodeGenerator gen = new BarcodeGenerator(EncodeTypes.QR, "https://youtu.be/XBk3Oa_YHKM?si=BQkWec58r2vGD5H2");
+            gen.Parameters.Barcode.XDimension.Pixels = 34;
+            string dataDir = @"S:\USERS\51-02\Хлопяник Андрей Игоревич\LegoStore\LegoStore";
+            gen.Save(dataDir + a.ToString() + "1.png", BarCodeImageFormat.Png);
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(dataDir + a.ToString() + "1.png");
+            bitmap.EndInit();
+            QRimg.Source = bitmap;
+            a++;
+        }
+
+        private void by_Click(object sender, RoutedEventArgs e)
+        {
+            doQR();
         }
     }
 }

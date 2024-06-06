@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LegoStore"
         mc:Ignorable="d"
-        Title="LEGO STORE" Height="450" Width="800">
+        Title="LEGO STORE" Height="450" Width="1000" MaxWidth="1000" MaxHeight="450">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -15,9 +15,10 @@
         </Grid.Background>
         <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Margin="39,9,0,0" FontSize="20px" VerticalAlignment="Top" Width="102" Height="31" Click="back_Click" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
         <TextBlock x:Name="Prise" HorizontalAlignment="Left" Margin="39,366,0,0" TextWrapping="Wrap" Text="Цена: " FontSize="20px" VerticalAlignment="Top" Foreground="White"/>
-        <TextBlock x:Name="FIO" HorizontalAlignment="Left" Margin="541,11,0,0" TextWrapping="Wrap"  Text="LEGO STORE" FontSize="20" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
+        <TextBlock x:Name="coast" HorizontalAlignment="Left" Margin="101,366,0,0" TextWrapping="Wrap" Text="0" FontSize="20px" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name="FIO" HorizontalAlignment="Left" Margin="821,11,0,0" TextWrapping="Wrap"  Text="LEGO STORE" FontSize="20" VerticalAlignment="Top" Foreground="White" FontWeight="Bold"/>
 
-        <ListView x:Name="Card" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,45,0,55" Foreground="White" FontSize="14">
+        <ListView x:Name="Card" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,45,251,55" Foreground="White" FontSize="14">
             <ListView.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -53,15 +54,13 @@
                         </StackPanel>
                         <ToolBarPanel Grid.Column="2"/>
                         <Button x:Name="deleteItem" Grid.Column="2" Content="Удалить" FontSize="20px" HorizontalAlignment="Left" Margin="62,94,0,0" Tag ="{Binding id}" VerticalAlignment="Top" Width="128" Height="34" Click="deleteItem_Click" Background="{x:Null}" BorderBrush="White" Foreground="White"/>
-                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" FontSize="18" Margin="0,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="180" Height="30">
-                            <Run Text="Колличество: "/>
-                            <Run Text="{Binding caunt}"/>
-                        </TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button x:Name="by" Content="Оформить" HorizontalAlignment="Left" Margin="642,368,0,0" FontSize="20px" VerticalAlignment="Top" Height="32" Width="107" Background="{x:Null}" Foreground="White" BorderBrush="White"/>
+        <Button x:Name="by" Content="Оформить" HorizontalAlignment="Left" Margin="821,0,0,0" FontSize="20px" VerticalAlignment="Center" Height="32" Width="107" Background="{x:Null}" Foreground="White" BorderBrush="White" Click="by_Click"/>
+        <Image x:Name="QRimg" HorizontalAlignment="Left" Height="127" Margin="821,64,0,0" VerticalAlignment="Top" Width="104"/>
+
     </Grid>
 </Window>
